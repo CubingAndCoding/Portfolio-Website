@@ -1,0 +1,50 @@
+.skills-group {
+  margin-bottom: 2rem;
+}
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+.skill-chip {
+  display: inline-block;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 16px;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  letter-spacing: 0.02em;
+  transition: background 0.15s;
+}
+.skill-chip:hover {
+  background: #1565c0;
+}
+.certifications-group {
+  margin-top: 2.5rem;
+}
+.certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+.certification-item {
+  background: #444a55;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (prefers-color-scheme: light) {
+  .certification-item {
+    background: #e0e0e0;
+    color: #23272f;
+  }
+} 

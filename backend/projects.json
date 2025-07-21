@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Board Game",
+    "description": "A board game project I created as a kid to practice coding.",
+    "image": "board_game.png",
+    "language": "Python",
+    "month": "January",
+    "year": "2025",
+    "download": "https://techno-cuber.itch.io/board-game"
+  }
+]
