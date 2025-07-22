@@ -4,8 +4,35 @@
     "description": "A board game project I created as a kid to practice coding.",
     "image": "board_game.png",
     "language": "Python",
-    "month": "January",
-    "year": "2025",
+    "month": "June",
+    "year": "2022",
     "download": "https://techno-cuber.itch.io/board-game"
+  },
+  {
+    "title": "Mega Trainer",
+    "description": "An application I created with Python to practice my skills in Pygame.",
+    "image": "Mega Trainer.png",
+    "language": "Python",
+    "month": "June",
+    "year": "2022",
+    "download": "https://techno-cuber.itch.io/mega-mouse-trainer"
+  },
+  {
+    "title": "Supermower",
+    "description": "A fun project I made in Python after I first learned about mazes. This was probably the best project I created in Python as I tried to make it as polished as possible.",
+    "image": "supermower.png",
+    "language": "Python",
+    "month": "February",
+    "year": "2023",
+    "download": "https://techno-cuber.itch.io/supermower"
+  },
+  {
+    "title": "Asteroids",
+    "description": "I created a really buggy version of asteroids just to see if I could do it. I didn't put much heart into it as I was busy with school, but it was meant to be a proof of concept.",
+    "image": "asteroids.png",
+    "language": "Python",
+    "month": "April",
+    "year": "2023",
+    "download": "https://techno-cuber.itch.io/asteroids"
   }
 ]

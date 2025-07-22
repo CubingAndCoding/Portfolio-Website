@@ -25,42 +25,61 @@ class ProjectAdder:
         self.download_path = None
         self.download_url = None
 
-        tk.Label(root, text='Title:').grid(row=0, column=0, sticky='e')
-        self.title_entry = tk.Entry(root, width=40)
-        self.title_entry.grid(row=0, column=1)
+        # Create main frame
+        self.main_frame = tk.Frame(root)
+        self.main_frame.pack(padx=20, pady=20, fill='both', expand=True)
 
-        tk.Label(root, text='Description:').grid(row=1, column=0, sticky='e')
-        self.desc_entry = tk.Entry(root, width=40)
-        self.desc_entry.grid(row=1, column=1)
+        # Title
+        tk.Label(self.main_frame, text='Title:').grid(row=0, column=0, sticky='e', padx=(0, 10), pady=5)
+        self.title_entry = tk.Entry(self.main_frame, width=40)
+        self.title_entry.grid(row=0, column=1, columnspan=3, sticky='ew', pady=5)
 
-        tk.Label(root, text='Language:').grid(row=2, column=0, sticky='e')
+        # Description
+        tk.Label(self.main_frame, text='Description:').grid(row=1, column=0, sticky='e', padx=(0, 10), pady=5)
+        self.desc_entry = tk.Entry(self.main_frame, width=40)
+        self.desc_entry.grid(row=1, column=1, columnspan=3, sticky='ew', pady=5)
+
+        # Language
+        tk.Label(self.main_frame, text='Language:').grid(row=2, column=0, sticky='e', padx=(0, 10), pady=5)
         self.lang_var = tk.StringVar(value=LANGUAGES[0])
-        self.lang_menu = tk.OptionMenu(root, self.lang_var, *LANGUAGES)
-        self.lang_menu.grid(row=2, column=1, sticky='w')
+        self.lang_menu = tk.OptionMenu(self.main_frame, self.lang_var, *LANGUAGES)
+        self.lang_menu.grid(row=2, column=1, sticky='w', pady=5)
 
-        tk.Label(root, text='Month:').grid(row=3, column=0, sticky='e')
+        # Month
+        tk.Label(self.main_frame, text='Month:').grid(row=3, column=0, sticky='e', padx=(0, 10), pady=5)
         self.month_var = tk.StringVar(value=MONTHS[0])
-        self.month_menu = tk.OptionMenu(root, self.month_var, *MONTHS)
-        self.month_menu.grid(row=3, column=1, sticky='w')
+        self.month_menu = tk.OptionMenu(self.main_frame, self.month_var, *MONTHS)
+        self.month_menu.grid(row=3, column=1, sticky='w', pady=5)
 
-        tk.Label(root, text='Year:').grid(row=4, column=0, sticky='e')
+        # Year
+        tk.Label(self.main_frame, text='Year:').grid(row=4, column=0, sticky='e', padx=(0, 10), pady=5)
         self.year_var = tk.StringVar(value=YEARS[0])
-        self.year_menu = tk.OptionMenu(root, self.year_var, *YEARS)
-        self.year_menu.grid(row=4, column=1, sticky='w')
+        self.year_menu = tk.OptionMenu(self.main_frame, self.year_var, *YEARS)
+        self.year_menu.grid(row=4, column=1, sticky='w', pady=5)
 
-        tk.Label(root, text='Image:').grid(row=5, column=0, sticky='e')
-        self.img_label = tk.Label(root, text='No file selected')
-        self.img_label.grid(row=5, column=1, sticky='w')
-        tk.Button(root, text='Select Image', command=self.select_image).grid(row=5, column=2)
+        # Image
+        tk.Label(self.main_frame, text='Image:').grid(row=5, column=0, sticky='e', padx=(0, 10), pady=5)
+        self.img_label = tk.Label(self.main_frame, text='No file selected', fg='gray')
+        self.img_label.grid(row=5, column=1, sticky='w', pady=5)
+        tk.Button(self.main_frame, text='Select Image', command=self.select_image).grid(row=5, column=2, padx=(10, 5), pady=5)
 
         # Download section
-        tk.Label(root, text='Download (optional):').grid(row=6, column=0, sticky='e')
-        self.download_label = tk.Label(root, text='No file or URL')
-        self.download_label.grid(row=6, column=1, sticky='w')
-        tk.Button(root, text='Select File', command=self.select_download_file).grid(row=6, column=2)
-        tk.Button(root, text='Enter URL', command=self.enter_download_url).grid(row=6, column=3)
+        tk.Label(self.main_frame, text='Download (optional):').grid(row=6, column=0, sticky='e', padx=(0, 10), pady=5)
+        self.download_label = tk.Label(self.main_frame, text='No file or URL', fg='gray')
+        self.download_label.grid(row=6, column=1, sticky='w', pady=5)
+        tk.Button(self.main_frame, text='Select File', command=self.select_download_file).grid(row=6, column=2, padx=(10, 5), pady=5)
+        tk.Button(self.main_frame, text='Enter URL', command=self.enter_download_url).grid(row=6, column=3, padx=(5, 0), pady=5)
 
-        tk.Button(root, text='Add Project', command=self.add_project).grid(row=7, column=1, pady=10)
+        # Buttons frame
+        button_frame = tk.Frame(self.main_frame)
+        button_frame.grid(row=7, column=0, columnspan=4, pady=20)
+
+        tk.Button(button_frame, text='Add Project', command=self.add_project, bg='#4CAF50', fg='white', font=('Arial', 10, 'bold')).pack(side='left', padx=(0, 10))
+        tk.Button(button_frame, text='Reset Form', command=self.reset_form, bg='#FF9800', fg='white').pack(side='left', padx=(0, 10))
+        tk.Button(button_frame, text='Exit', command=self.root.destroy, bg='#f44336', fg='white').pack(side='left')
+
+        # Configure grid weights
+        self.main_frame.columnconfigure(1, weight=1)
 
     def select_image(self):
         path = filedialog.askopenfilename(
@@ -69,7 +88,7 @@ class ProjectAdder:
         )
         if path:
             self.image_path = path
-            self.img_label.config(text=os.path.basename(path))
+            self.img_label.config(text=os.path.basename(path), fg='black')
 
     def select_download_file(self):
         path = filedialog.askopenfilename(
@@ -79,14 +98,30 @@ class ProjectAdder:
         if path:
             self.download_path = path
             self.download_url = None
-            self.download_label.config(text=os.path.basename(path))
+            self.download_label.config(text=os.path.basename(path), fg='black')
 
     def enter_download_url(self):
-        url = tk.simpledialog.askstring('Download URL', 'Enter download URL:')
+        url = simpledialog.askstring('Download URL', 'Enter download URL:')
         if url:
             self.download_url = url
             self.download_path = None
-            self.download_label.config(text=url)
+            self.download_label.config(text=url, fg='black')
+
+    def reset_form(self):
+        """Reset all form fields to their default values"""
+        self.title_entry.delete(0, tk.END)
+        self.desc_entry.delete(0, tk.END)
+        self.lang_var.set(LANGUAGES[0])
+        self.month_var.set(MONTHS[0])
+        self.year_var.set(YEARS[0])
+        self.image_path = None
+        self.download_path = None
+        self.download_url = None
+        self.img_label.config(text='No file selected', fg='gray')
+        self.download_label.config(text='No file or URL', fg='gray')
+        
+        # Focus on title entry for quick entry
+        self.title_entry.focus()
 
     def add_project(self):
         title = self.title_entry.get().strip()
@@ -146,12 +181,14 @@ class ProjectAdder:
         try:
             with open(PROJECTS_JSON, 'w', encoding='utf-8') as f:
                 json.dump(projects, f, indent=2)
-            messagebox.showinfo('Success', 'Project added!')
-            self.root.destroy()
+            messagebox.showinfo('Success', f'Project "{title}" added successfully!\n\nYou can now add another project or click Exit to close.')
+            self.reset_form()  # Reset form for next project
         except Exception as e:
             messagebox.showerror('Error', f'Failed to save project: {e}')
 
 if __name__ == '__main__':
     root = tk.Tk()
+    root.geometry('600x400')
+    root.resizable(True, True)
     app = ProjectAdder(root)
     root.mainloop() 

@@ -3,7 +3,7 @@ import './Extracurriculars.css';
 
 const Extracurriculars: React.FC = () => (
   <div className="page-container extracurriculars-page">
-    <h1>Extracurriculars</h1>
+    <h1 className="center-heading">Extracurriculars</h1>
     <div className="extracurriculars-list">
       <div className="extracurriculars-card">
         <h2>Computer Science UIL <span role="img" aria-label="trophy">🏆</span></h2>

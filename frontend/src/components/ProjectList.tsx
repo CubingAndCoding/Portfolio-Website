@@ -51,11 +51,61 @@ const ProjectList: React.FC = () => {
       });
   }, []);
 
-  if (loading) return <div>Loading projects...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return (
+    <div className="loading-container">
+      <div className="loading-spinner">
+        <div className="spinner-ring"></div>
+        <div className="spinner-ring"></div>
+        <div className="spinner-ring"></div>
+      </div>
+      <p className="loading-text">Loading your projects...</p>
+      <div className="loading-skeleton-grid">
+        {[1, 2, 3, 4, 5, 6].map(i => (
+          <div key={i} className="skeleton-card">
+            <div className="skeleton-image"></div>
+            <div className="skeleton-content">
+              <div className="skeleton-title"></div>
+              <div className="skeleton-description"></div>
+              <div className="skeleton-description short"></div>
+              <div className="skeleton-chip"></div>
+              <div className="skeleton-date"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+  
+  if (error) return (
+    <div className="error-container">
+      <div className="error-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9ZM19 21H5V3H13V9H19V21Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h3 className="error-title">Oops! Something went wrong</h3>
+      <p className="error-message">{error}</p>
+      <button 
+        className="error-retry-btn"
+        onClick={() => window.location.reload()}
+      >
+        Try Again
+      </button>
+    </div>
+  );
 
   if (projects.length === 0) {
-    return <div>No projects available.</div>;
+    return (
+      <div className="empty-container">
+        <div className="empty-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM17 13H7V11H17V13ZM13 17H7V15H13V17ZM7 7V9H17V7H7Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3 className="empty-title">No projects yet</h3>
+        <p className="empty-message">Projects will appear here once they're added to the portfolio.</p>
+      </div>
+    );
   }
 
   return (
@@ -97,36 +147,38 @@ const ProjectList: React.FC = () => {
       </div>
       {selectedProject && (
         <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div className="modal-card" onClick={e => e.stopPropagation()}>
-            <img
-              src={`${BACKEND_URL}/static/${selectedProject.image}`}
-              alt={selectedProject.title}
-              className="modal-image"
-              onError={(e) => (e.currentTarget.style.display = 'none')}
-            />
-            <h2>{selectedProject.title}</h2>
-            <p>{selectedProject.description}</p>
+          <div className="modal-container" onClick={e => e.stopPropagation()}>
+            <div className="modal-card">
+              <img
+                src={`${BACKEND_URL}/static/${selectedProject.image}`}
+                alt={selectedProject.title}
+                className="modal-image"
+                onError={(e) => (e.currentTarget.style.display = 'none')}
+              />
+              <h2>{selectedProject.title}</h2>
+              <p>{selectedProject.description}</p>
+              {selectedProject.download && (
+                <a
+                  className="download-btn"
+                  href={isUrl(selectedProject.download) ? selectedProject.download : `${BACKEND_URL}/static/${selectedProject.download}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                >
+                  Download
+                </a>
+              )}
+            </div>
+            <button className="close-modal-btn" onClick={() => setSelectedProject(null)} aria-label="Close">×</button>
             <span
-              className="language-chip"
+              className="modal-language-chip"
               style={{ backgroundColor: languageColors[selectedProject.language] || '#ccc' }}
             >
               {selectedProject.language}
             </span>
-            <div className="project-date">
+            <div className="modal-project-date">
               {selectedProject.month} {selectedProject.year}
             </div>
-            {selectedProject.download && (
-              <a
-                className="download-btn"
-                href={isUrl(selectedProject.download) ? selectedProject.download : `${BACKEND_URL}/static/${selectedProject.download}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                download
-              >
-                Download
-              </a>
-            )}
-            <button className="close-modal-btn" onClick={() => setSelectedProject(null)} aria-label="Close">Close</button>
           </div>
         </div>
       )}

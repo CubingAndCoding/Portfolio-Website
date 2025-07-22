@@ -1,1 +1,5 @@
 /* Home page tweaks (if needed) */
+
+.page-container > h2 {
+  text-align: center;
+}
