@@ -1,0 +1,3 @@
+@echo off
+echo Starting Ionic server with network access...
+ionic serve --external 

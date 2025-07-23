@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "serve": "ionic serve --external",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test.e2e": "cypress run",

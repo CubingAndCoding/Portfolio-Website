@@ -1,14 +1,122 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Experience.css';
 
-const Experience: React.FC = () => (
-  <>
-    <div className="page-container experience-page">
+const Experience: React.FC = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const isSmall = window.innerWidth <= 550;
+      setIsSmallScreen(isSmall);
+      
+      // Debug logging
+      console.log('Screen width:', window.innerWidth, 'Is small:', isSmall);
+      
+      // Force CSS custom property update
+      document.documentElement.style.setProperty('--card-width', isSmall ? '100%' : '500px');
+      document.documentElement.style.setProperty('--card-max-width', isSmall ? '100%' : '500px');
+      document.documentElement.style.setProperty('--card-min-width', isSmall ? '0' : '0');
+      document.documentElement.style.setProperty('--card-height', isSmall ? 'auto' : '560px');
+      document.documentElement.style.setProperty('--card-min-height', isSmall ? '400px' : '560px');
+      document.documentElement.style.setProperty('--card-max-height', isSmall ? 'none' : '560px');
+      
+      // Force DOM update with setTimeout
+      setTimeout(() => {
+        const cards = document.querySelectorAll('.experience-card');
+        cards.forEach(card => {
+          if (isSmall) {
+            (card as HTMLElement).style.width = '100%';
+            (card as HTMLElement).style.maxWidth = '100%';
+            (card as HTMLElement).style.minWidth = '0';
+            (card as HTMLElement).style.height = 'auto';
+            (card as HTMLElement).style.minHeight = '400px';
+            (card as HTMLElement).style.maxHeight = 'none';
+          } else {
+            (card as HTMLElement).style.width = '500px';
+            (card as HTMLElement).style.maxWidth = '500px';
+            (card as HTMLElement).style.minWidth = '0';
+            (card as HTMLElement).style.height = '560px';
+            (card as HTMLElement).style.minHeight = '560px';
+            (card as HTMLElement).style.maxHeight = '560px';
+          }
+        });
+      }, 0);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const cardStyle = isSmallScreen ? {
+    width: '100vw',
+    maxWidth: '100vw',
+    minWidth: '0',
+    height: 'auto',
+    minHeight: '400px',
+    maxHeight: 'none',
+    boxSizing: 'border-box' as const,
+    transform: 'none',
+    flexShrink: 1,
+    flexGrow: 1,
+    margin: '0',
+    padding: 'var(--space-8) var(--space-4)'
+  } : {};
+
+  const headerStyle = isSmallScreen ? {
+    flexDirection: 'column' as const,
+    alignItems: 'center' as const,
+    textAlign: 'center' as const,
+    gap: 'var(--space-4)',
+    height: 'auto',
+    minHeight: '120px'
+  } : {};
+
+    return (
+    <>
+      {isSmallScreen && (
+        <style>
+          {`
+            .experience-card,
+            .experience-page .experience-card,
+            .page-container .experience-card,
+            .experience-list .experience-card,
+            ion-app .experience-card,
+            .ion-page .experience-card {
+              width: 100% !important;
+              max-width: 100% !important;
+              min-width: 0 !important;
+              height: auto !important;
+              min-height: 400px !important;
+              max-height: none !important;
+              box-sizing: border-box !important;
+              transform: none !important;
+              flex: 1 1 100% !important;
+            }
+            
+            .experience-list {
+              width: 100% !important;
+              max-width: 100% !important;
+              grid-template-columns: 1fr !important;
+            }
+            
+            .experience-header {
+              flex-direction: column !important;
+              align-items: center !important;
+              text-align: center !important;
+              gap: var(--space-4) !important;
+              height: auto !important;
+              min-height: 120px !important;
+            }
+          `}
+        </style>
+      )}
+      <div className="page-container experience-page">
       <h1 className="center-heading">Professional Experience</h1>
     </div>
-    <div className="experience-list">
-      <div className="experience-card">
-        <div className="experience-header">
+    <div className={`experience-list ${isSmallScreen ? 'ion-no-padding' : ''}`}>
+      <div className={`experience-card ${isSmallScreen ? 'ion-full-width' : ''}`} style={cardStyle}>
+        <div className="experience-header" style={headerStyle}>
           <div className="experience-icon">
             {/* Official React logo SVG */}
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -37,8 +145,8 @@ const Experience: React.FC = () => (
           </ul>
         </div>
       </div>
-      <div className="experience-card">
-        <div className="experience-header">
+      <div className={`experience-card ${isSmallScreen ? 'ion-full-width' : ''}`} style={cardStyle}>
+        <div className="experience-header" style={headerStyle}>
           <div className="experience-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" fill="currentColor"/>
@@ -64,6 +172,7 @@ const Experience: React.FC = () => (
       </div>
     </div>
   </>
-);
+  );
+};
 
 export default Experience; 

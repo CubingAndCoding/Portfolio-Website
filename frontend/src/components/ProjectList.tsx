@@ -11,7 +11,12 @@ interface Project {
   download?: string;
 }
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'; // Change to your deployed backend if needed
+
+
+let BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+if (BACKEND_URL === undefined) {
+  BACKEND_URL = 'http://localhost:5000';
+}
 
 const languageColors: Record<string, string> = {
   Java: '#f89820',
@@ -34,6 +39,7 @@ const ProjectList: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
+    console.log(import.meta.env.VITE_BACKEND_URL);
     fetch(`${BACKEND_URL}/projects`)
       .then((res) => res.json())
       .then((data) => {

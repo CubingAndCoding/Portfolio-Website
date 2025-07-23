@@ -2,6 +2,10 @@ from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 import json
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .flaskenv
+load_dotenv()
 
 app = Flask(__name__, static_folder='static')
 CORS(app)

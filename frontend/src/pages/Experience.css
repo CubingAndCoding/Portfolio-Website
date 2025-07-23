@@ -36,12 +36,7 @@
   margin: auto auto;
 }
 
-@media (max-width: 1200px) {
-  .experience-list {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-  }
-}
+
 
 .experience-card {
   background: var(--bg-card);
@@ -55,15 +50,28 @@
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
-  min-width: 0;
-  width: 500px;
-  max-width: 500px;
+  min-width: var(--card-min-width, 0);
+  width: var(--card-width, 500px);
+  max-width: var(--card-max-width, 500px);
   box-sizing: border-box;
   display: flex;
-  min-height: 560px;
-  height: 560px;
-  max-height: 560px;
+  min-height: var(--card-min-height, 560px);
+  height: var(--card-height, 560px);
+  max-height: var(--card-max-height, 560px);
   flex-direction: column;
+}
+
+/* Force responsive behavior on small screens */
+@media (max-width: 550px) {
+  .experience-card,
+  .experience-page .experience-card,
+  .page-container .experience-card,
+  .experience-list .experience-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
 }
 
 .experience-card::before {
@@ -230,4 +238,67 @@
   .experience-header {
     border-bottom-color: var(--border-color-light);
   }
-} 
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .experience-list {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-list {
+    grid-template-columns: 1fr;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 var(--space-4);
+  }
+  
+  .experience-card,
+  .experience-page .experience-card,
+  .page-container .experience-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 400px;
+  }
+  
+  .experience-header {
+    height: auto !important;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 550px) {
+  .experience-list {
+    grid-template-columns: 1fr;
+    min-width: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 var(--space-4);
+  }
+
+  .experience-card,
+  .experience-page .experience-card,
+  .page-container .experience-card {
+    min-width: 0px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Ultra-specific override for very small screens */
+@media (max-width: 550px) {
+  .experience-page .experience-list .experience-card,
+  .page-container .experience-list .experience-card,
+  .experience-list .experience-card,
+  .experience-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}

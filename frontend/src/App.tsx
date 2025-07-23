@@ -15,6 +15,8 @@ import Resume from './pages/Resume';
 import RubiksCube from './components/RubiksCube';
 import './App.css';
 
+
+
 const RubiksCubeWidget: React.FC<{ onClose: () => void; cubeKey: number }> = ({ onClose, cubeKey }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
