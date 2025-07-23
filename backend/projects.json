@@ -34,5 +34,76 @@
     "month": "April",
     "year": "2023",
     "download": "https://techno-cuber.itch.io/asteroids"
+  },
+  {
+    "title": "Tic-Tac-Toe",
+    "description": "A quick project I created to see how hard it would be to convert a console based game I made into a proper GUI application",
+    "image": "tic-tac-toe.png",
+    "language": "Python",
+    "month": "April",
+    "year": "2023",
+    "download": "https://techno-cuber.itch.io/tic-tac-toe-gui"
+  },
+  {
+    "title": "Runner",
+    "description": "A quick game I made in an hour or two as I wanted to use it to post an educational video about Python on YouTube",
+    "image": "runner.png",
+    "language": "Python",
+    "month": "April",
+    "year": "2023",
+    "download": "https://techno-cuber.itch.io/runner"
+  },
+  {
+    "title": "Dino Game",
+    "description": "A remake of the infamous Chrome Dino Game I created in around a week. I wanted to give my own take at an endless runner and was quite proud of the system I made for the game.",
+    "image": "dino-game.jpg",
+    "language": "Java",
+    "month": "January",
+    "year": "2024",
+    "download": "https://techno-cuber.itch.io/dino-game"
+  },
+  {
+    "title": "Shape Creator",
+    "description": "This was more of a simulation rather than a game. I created it to test out an algorithm for calculating areas (the shoelace theorem). I wanted to create this project to test its viability in UIL competitions",
+    "image": "shape-creator.jpg",
+    "language": "Java",
+    "month": "June",
+    "year": "2025",
+    "download": "https://techno-cuber.itch.io/shape-creator"
+  },
+  {
+    "title": "Karate Champ",
+    "description": "A terrible remake of a retro arcade game from the 80s called Karate Champ. I created this game for fun with my good friend Joseph Nguyen. We were both busy with UIL, so we didn't get much time to work on this school project. Even though our teacher didn't require us to create this game, we still did it anyways for fun.",
+    "image": "karate-champ.png",
+    "language": "Java",
+    "month": "November",
+    "year": "2024",
+    "download": "https://github.com/CubingAndCoding/CS-Karate-Champ/tree/main"
+  },
+  {
+    "title": "Online Pong",
+    "description": "I wanted to learn networking with Java properly. I \"learned\" networking before, but I just copied the YouTube tutorial. This time I followed a simple tutorial to create a messaging system and turned it into a 2-player online pong game.",
+    "image": "online-pong.jpg",
+    "language": "Java",
+    "month": "July",
+    "year": "2025",
+    "download": "https://github.com/CubingAndCoding/Online-Pong"
+  },
+  {
+    "title": "Rubik's Cube Solver",
+    "description": "I created this project a while ago when I got more interested in Python. This project was one of my favorites back then as I thought it was one of the hardest things I did. I imagined how I would have tought a toddler how to solve a Rubik's Cube and used the same method to teach a computer to solve it.",
+    "image": "rubiks-cube-solver.jpg",
+    "language": "Python",
+    "month": "July",
+    "year": "2023",
+    "download": "https://www.youtube.com/watch?v=N0kPvJST6ok"
+  },
+  {
+    "title": "Tangent Grapher",
+    "description": "This was a fun project I made in Java. I was teaching myself Calculus online and thought that I should probably make an easy way to test if I did my derivatives right. I couldn't find anything useful online so I resorted to making it myself.",
+    "image": "tangent-grapher.jpg",
+    "language": "Java",
+    "month": "June",
+    "year": "2025"
   }
 ]

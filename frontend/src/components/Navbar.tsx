@@ -4,6 +4,8 @@ import './Navbar.css';
 
 import logoImg from '../assets/logo.png';
 import cubeImg from '../assets/rubiks-cube.png';
+import awakeLogo from '../assets/awake_logo.png';
+import asleepLogo from '../assets/asleep_logo.png';
 
 interface NavbarProps {
   onCubeClick: () => void;
@@ -21,9 +23,29 @@ const navLinks = [
   { to: '/resume', label: 'Resume' },
 ];
 
+const getHoustonLogo = () => {
+  // Houston is in America/Chicago timezone (CST/CDT)
+  const now = new Date();
+  // Get current time in Houston (America/Chicago)
+  // Use Intl.DateTimeFormat to get hour in 24h format
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    hour12: false,
+    timeZone: 'America/Chicago',
+  });
+  const hour = parseInt(formatter.format(now), 10);
+  // Awake: 8 <= hour < 22
+  if (hour >= 8 && hour < 22) {
+    return awakeLogo;
+  } else {
+    return asleepLogo;
+  }
+};
+
 const Navbar: React.FC<NavbarProps> = ({ onCubeClick }) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(false); // for Rubik's Cube effect only
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showLegendModal, setShowLegendModal] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -40,19 +62,29 @@ const Navbar: React.FC<NavbarProps> = ({ onCubeClick }) => {
         <div className="navbar-content">
           <div
             className="navbar-logo"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            onMouseEnter={() => setShowLegendModal(true)}
+            onMouseLeave={() => setShowLegendModal(false)}
+            onFocus={() => setShowLegendModal(true)}
+            onBlur={() => setShowLegendModal(false)}
             onClick={onCubeClick}
             tabIndex={0}
             role="button"
             aria-label="Rubik's Cube Easter Egg"
             onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onCubeClick(); }}
+            style={{ position: 'relative' }}
           >
             <img
-              src={hovered ? cubeImg : logoImg}
-              alt={hovered ? "Rubik's Cube Logo" : "AT Logo"}
+              src={hovered ? cubeImg : getHoustonLogo()}
+              alt={hovered ? "Rubik's Cube Logo" : "Logo (shows if I'm awake: 8am–10pm, or asleep: 10pm–8am, Houston time)"}
               className="logo-img"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
             />
+            {showLegendModal && (
+              <div className="logo-tooltip-bubble" role="tooltip">
+                <div>I'm available from 8am to 10pm Houston time (CST/CDT), but you can also tell from the logo 😉!</div>
+              </div>
+            )}
           </div>
           
           {/* Desktop Navigation */}
@@ -89,7 +121,8 @@ const Navbar: React.FC<NavbarProps> = ({ onCubeClick }) => {
               aria-label="Close menu"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentColor"/>
+                {/* <line x1="6" y1="6" x2="18" y2="18" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="18" y1="6" x2="6" y2="18" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/> */}
               </svg>
             </button>
           </div>

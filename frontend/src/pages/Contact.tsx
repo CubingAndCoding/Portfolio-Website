@@ -2,6 +2,9 @@ import React from 'react';
 import controllerImage from '../assets/controller.png';
 // Center headings locally for this page
 const contactStyle = `<style>.center-heading { text-align: center; }
+.contact-hero {
+  margin-bottom: 0px;
+}
 .contact-hero h1 {
   font-size: 1.75rem;
   font-weight: 800;
@@ -155,7 +158,7 @@ const Contact: React.FC = () => (
         <div className="stats-grid">
           <div className="stat-item">
             <div className="stat-number">24/7</div>
-            <div className="stat-label">Response Time</div>
+            <div className="stat-label">Jobless 💔</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">100%</div>

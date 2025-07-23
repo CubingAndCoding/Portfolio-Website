@@ -62,7 +62,7 @@
   margin: 0 0.1rem;
 }
 .awards-year-tab.active {
-  background: linear-gradient(90deg, #2563eb 60%, #8ab4f8 100%);
+  background: #488eff;
   color: #fff;
   opacity: 1;
   box-shadow: 0 2px 8px rgba(37,99,235,0.10);
@@ -364,7 +364,7 @@
     color: #23272f;
   }
   .awards-year-tab.active {
-    background: linear-gradient(90deg, #174ea6 60%, #8ab4f8 100%);
+    background: #174ea6;
     color: #fff;
   }
   .awards-year-tab:hover:not(.active), .awards-year-tab:focus:not(.active) {

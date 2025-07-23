@@ -11,7 +11,7 @@ interface Project {
   download?: string;
 }
 
-const BACKEND_URL = 'http://localhost:5000'; // Change to your deployed backend if needed
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'; // Change to your deployed backend if needed
 
 const languageColors: Record<string, string> = {
   Java: '#f89820',
