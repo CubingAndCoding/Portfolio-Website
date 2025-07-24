@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
-import logoImg from '../assets/logo.png';
 import cubeImg from '../assets/rubiks-cube.png';
 import awakeLogo from '../assets/awake_logo.png';
 import asleepLogo from '../assets/asleep_logo.png';
@@ -20,7 +19,7 @@ const navLinks = [
   { to: '/awards', label: 'Awards' },
   { to: '/extracurriculars', label: 'Extracurriculars' },
   { to: '/contact', label: 'Contact' },
-  { to: '/resume', label: 'Resume' },
+  { to: '/resume', label: 'Résumé' },
 ];
 
 const getHoustonLogo = () => {
