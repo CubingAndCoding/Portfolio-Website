@@ -334,12 +334,18 @@
     background: #fff;
     color: #23272f;
   }
+  .awards-year h2 {
+    color: #60a5fa;
+  }
   .awards-timeline-bar::before {
-    background: linear-gradient(90deg, #174ea6 0%, #8ab4f8 100%);
+    background: linear-gradient(90deg, #60a5fa 0%, #8ab4f8 100%);
+  }
+  .awards-timeline-month-label {
+    color: #60a5fa;
   }
   .awards-timeline-medal {
     background: #fff;
-    border-color: #174ea6;
+    border-color: #60a5fa;
   }
   .awards-timeline-card {
     background: #fff;
@@ -347,7 +353,7 @@
     box-shadow: 0 4px 24px rgba(23,78,166,0.10);
   }
   .awards-timeline-card-title {
-    color: #174ea6;
+    color: #60a5fa;
   }
   .awards-timeline-card-desc {
     color: #23272f;
@@ -364,11 +370,11 @@
     color: #23272f;
   }
   .awards-year-tab.active {
-    background: #174ea6;
+    background: #60a5fa;
     color: #fff;
   }
   .awards-year-tab:hover:not(.active), .awards-year-tab:focus:not(.active) {
-    background: rgba(23,78,166,0.10);
-    color: #174ea6;
+    background: rgba(96,165,250,0.10);
+    color: #60a5fa;
   }
 } 

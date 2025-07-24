@@ -40,7 +40,7 @@ const About: React.FC = () => (
       <h2 className="center-heading">About Me</h2>
       <div className="about-bio">
         <p>
-          I am currently going into my Senior year at Cypress Woods High School and am an aspiring Computer Science professional. As a first step towards my goal, I am a Computer Science III K course in High School and actively participate in UIL competitions.
+          I am currently going into my Senior year at Cypress Woods High School and am an aspiring Computer Science professional. As a first step towards my goal, I am enrolled in the Computer Science IV K course in High School and actively participate in UIL competitions.
         </p>
         <p>
           Taking part in Computer Science UIL competitions has helped me with many soft-skills including communication skills, organizational skills, and team-based skills. Also, many years of dedicated speed cubing has taught me to welcome challenges to learn and become better overall.

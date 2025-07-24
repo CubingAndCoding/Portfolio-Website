@@ -139,7 +139,7 @@ const Experience: React.FC = () => {
         </div>
         <div className="experience-content">
           <ul className="experience-details">
-            <li>Redeveloped the UI of a <span className="keyword">cross-platform application</span> (<span className="keyword">Wenncet</span>) using <span className="keyword">Ionic React</span>, improving <span className="keyword">responsiveness</span> and modernizing <span className="keyword">aesthetics</span> to boost <span className="keyword">user engagement</span>.</li>
+            <li>Redeveloped the UI of a <span className="keyword">cross-platform application</span> (<span className="keyword">Wennect</span>) using <span className="keyword">Ionic React</span>, improving <span className="keyword">responsiveness</span> and modernizing <span className="keyword">aesthetics</span> to boost <span className="keyword">user engagement</span>.</li>
             <li>Addressed and fixed <span className="keyword">security vulnerabilities</span> to meet <span className="keyword">app store compliance</span>.</li>
             <li>Collaborated with <span className="keyword">cross-functional teams</span> to deliver <span className="keyword">high-quality software solutions</span>.</li>
           </ul>

@@ -59,7 +59,7 @@ const Contact: React.FC = () => (
             </div>
           </a>
           
-          <a className="contact-method primary" href="#" target="_blank" rel="noopener noreferrer">
+          <a className="contact-method primary" href="https://www.linkedin.com/in/alaqmar-trunkwala-15baba2ba" target="_blank" rel="noopener noreferrer">
             <div className="method-icon-wrapper">
               <div className="method-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ const Contact: React.FC = () => (
       <div className="contact-section secondary-contact">
         <h2 className="center-heading">My Code</h2>
         <div className="contact-methods-grid">
-          <a className="contact-method secondary" href="#" target="_blank" rel="noopener noreferrer">
+          <a className="contact-method secondary" href="https://github.com/CubingAndCoding" target="_blank" rel="noopener noreferrer">
             <div className="method-icon-wrapper">
               <div className="method-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@ const Contact: React.FC = () => (
             </div>
           </a>
           
-          <a className="contact-method secondary" href="#" target="_blank" rel="noopener noreferrer">
+          <a className="contact-method secondary" href="https://leetcode.com/u/alaqmartrunk/" target="_blank" rel="noopener noreferrer">
             <div className="method-icon-wrapper">
               <div className="method-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +114,7 @@ const Contact: React.FC = () => (
       <div className="contact-section secondary-contact">
         <h2 className="center-heading">My Content</h2>
         <div className="contact-methods-grid">
-          <a className="contact-method secondary" href="#" target="_blank" rel="noopener noreferrer">
+          <a className="contact-method secondary" href="https://techno-cuber.itch.io/" target="_blank" rel="noopener noreferrer">
             <div className="method-icon-wrapper">
               <div className="method-icon">
                 <img 
@@ -136,7 +136,7 @@ const Contact: React.FC = () => (
             </div>
           </a>
           
-          <a className="contact-method secondary" href="#" target="_blank" rel="noopener noreferrer">
+          <a className="contact-method secondary" href="https://www.youtube.com/@alaqmartrunkwala6796" target="_blank" rel="noopener noreferrer">
             <div className="method-icon-wrapper">
               <div className="method-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

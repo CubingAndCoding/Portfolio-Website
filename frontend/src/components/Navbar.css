@@ -139,23 +139,25 @@
   position: absolute;
   top: -9px;
   left: 18px;
-  transform: none;
-  border-width: 0 24px 20px 0;
+  border-width: 0 12px 12px 0;
   border-style: solid;
-  border-color: transparent transparent var(--bg-card, #222e3c) transparent;
-  filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.10));
-  z-index: 100001;
+  border-color: transparent transparent var(--bg-card-light) transparent;
+  width: 0;
+  height: 0;
   background: transparent;
+  z-index: 100001;
 }
 .logo-tooltip-bubble::after {
   content: '';
   position: absolute;
   top: -14px; /* Move up a bit more */
-  left: 16px; /* Move right a bit */
-  transform: none;
+  left: 15px; /* Move right a bit */
   border-width: 0 16px 12px 0;
   border-style: solid;
-  border-color: transparent transparent #3b82f6 transparent;
+  border-color: transparent transparent var(--primary-blue) transparent;
+  width: 0;
+  height: 0;
+  background: transparent;
   z-index: 100000;
 }
 
@@ -497,5 +499,34 @@
     color: var(--text-primary-light);
     background: rgba(0, 0, 0, 0.05);
     border-color: var(--border-color-light);
+  }
+  .logo-tooltip-bubble {
+    background: var(--bg-card-light);
+    color: var(--text-primary-light);
+    border: 2px solid var(--primary-blue);
+  }
+  .logo-tooltip-bubble::before {
+    border-color: transparent transparent var(--bg-card-light) transparent;
+    background: transparent;
+  }
+  .logo-tooltip-bubble::after {
+    border-color: transparent transparent var(--primary-blue) transparent;
+    background: transparent;
+  }
+} 
+
+@media (prefers-color-scheme: dark) {
+  .logo-tooltip-bubble {
+    background: var(--bg-card, #222e3c);
+    color: var(--text-primary, #fff);
+    border: 2px solid #3b82f6;
+  }
+  .logo-tooltip-bubble::before {
+    border-color: transparent transparent var(--bg-card, #222e3c) transparent;
+    background: transparent;
+  }
+  .logo-tooltip-bubble::after {
+    border-color: transparent transparent #3b82f6 transparent;
+    background: transparent;
   }
 } 

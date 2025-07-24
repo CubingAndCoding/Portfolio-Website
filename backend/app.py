@@ -1,20 +1,16 @@
+print("running")
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 import json
 import os
-from dotenv import load_dotenv
-
-# Load environment variables from .flaskenv
-load_dotenv()
 
 app = Flask(__name__, static_folder='static')
 CORS(app)
 
 PROJECTS_FILE = os.path.join(os.path.dirname(__file__), 'projects.json')
-
 @app.route('/projects')
 def get_projects():
-    with open(PROJECTS_FILE, 'r', encoding='utf-8') as f:
+    with open(PROJECTS_FILE, 'r') as f:
         projects = json.load(f)
     return jsonify(projects)
 

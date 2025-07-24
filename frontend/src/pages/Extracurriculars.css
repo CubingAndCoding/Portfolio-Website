@@ -27,6 +27,20 @@
 .center-heading {
   text-align: center;
 }
+.keyword {
+  transition: background 0.2s, color 0.2s, font-weight 0.2s;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.keyword:hover {
+  /* No background or color change, handled by card hover */
+}
+.extracurriculars-card:hover .keyword {
+  color: var(--primary-blue);
+  background: none;
+  font-weight: 600;
+  transition: color 0.2s, font-weight 0.2s;
+}
 @media (prefers-color-scheme: light) {
   .extracurriculars-card {
     background: #fff;
