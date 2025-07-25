@@ -63,7 +63,7 @@ const ProjectList: React.FC = () => {
         <div className="spinner-ring"></div>
         <div className="spinner-ring"></div>
       </div>
-      <p className="loading-text">Loading your projects...</p>
+      <p className="loading-text">Loading projects...</p>
       <div className="loading-skeleton-grid">
         {[1, 2, 3, 4, 5, 6].map(i => (
           <div key={i} className="skeleton-card">
