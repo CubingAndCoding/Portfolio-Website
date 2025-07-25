@@ -34,7 +34,7 @@
   box-sizing: border-box;
   max-width: 1050px;
   margin: auto auto;
-}
+  }
 
 
 
@@ -238,7 +238,7 @@
   .experience-header {
     border-bottom-color: var(--border-color-light);
   }
-}
+} 
 
 /* Responsive Design */
 @media (max-width: 1200px) {

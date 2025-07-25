@@ -5,7 +5,7 @@ import json
 import os
 
 app = Flask(__name__, static_folder='static')
-CORS(app)
+CORS(app, origins=['https://portfolio-frontend-chi-olive.vercel.app', 'https://alaqmar-portfolio.vercel.app', 'https://alaqmar53.vercel.app'])
 
 PROJECTS_FILE = os.path.join(os.path.dirname(__file__), 'projects.json')
 @app.route('/projects')

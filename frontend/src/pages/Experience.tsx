@@ -9,9 +9,6 @@ const Experience: React.FC = () => {
       const isSmall = window.innerWidth <= 550;
       setIsSmallScreen(isSmall);
       
-      // Debug logging
-      console.log('Screen width:', window.innerWidth, 'Is small:', isSmall);
-      
       // Force CSS custom property update
       document.documentElement.style.setProperty('--card-width', isSmall ? '100%' : '500px');
       document.documentElement.style.setProperty('--card-max-width', isSmall ? '100%' : '500px');

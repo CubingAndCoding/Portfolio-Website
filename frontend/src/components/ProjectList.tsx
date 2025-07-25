@@ -39,7 +39,6 @@ const ProjectList: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
-    console.log(import.meta.env.VITE_BACKEND_URL);
     fetch(`${BACKEND_URL}/projects`)
       .then((res) => res.json())
       .then((data) => {

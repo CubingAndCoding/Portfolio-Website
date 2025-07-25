@@ -661,6 +661,21 @@ body {
   .stat-item h3 {
     color: var(--primary-blue) !important;
   }
+  .contact-subtitle {
+    color: var(--text-secondary-light) !important;
+  }
+  .method-content h3 {
+    color: var(--text-primary-light) !important;
+  }
+  .method-content p {
+    color: var(--text-secondary-light) !important;
+  }
+  .stat-label {
+    color: var(--text-secondary-light) !important;
+  }
+  .stat-number {
+    color: var(--primary-blue) !important;
+  }
 }
 
 /* Cube Modal Enhancements */
@@ -794,12 +809,23 @@ body {
   font-size: var(--font-size-5xl);
   font-weight: 800;
   margin-bottom: var(--space-6);
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-blue) 100%);
+  background: linear-gradient(135deg, var(--primary-blue), #60a5fa, #c1dcff, #3b82f6, var(--primary-blue));
+  background-size: 800% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.025em;
   line-height: 1.2;
+  animation: animated-gradient 8s linear infinite;
+}
+
+@keyframes animated-gradient {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .contact-subtitle {
@@ -1218,4 +1244,4 @@ body {
   .contact-link span {
     font-size: var(--font-size-xs);
   }
-}
+} 

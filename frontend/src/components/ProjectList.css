@@ -633,3 +633,18 @@
     font-size: var(--font-size-xl);
   }
 } 
+
+@media (prefers-color-scheme: light) {
+  .skeleton-card {
+    background: var(--card-bg, #fff);
+    border: 1px solid var(--card-border, #e0e0e0);
+  }
+  .skeleton-image,
+  .skeleton-title,
+  .skeleton-description,
+  .skeleton-chip,
+  .skeleton-date {
+    background: linear-gradient(90deg, var(--border-color-light, #e2e8f0) 25%, var(--bg-secondary-light, #f8fafc) 50%, var(--border-color-light, #e2e8f0) 75%);
+    background-size: 200% 100%;
+  }
+} 
